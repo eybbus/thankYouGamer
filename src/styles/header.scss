@@ -1,0 +1,105 @@
+@import "./colors";
+
+header {
+  overflow: hidden;
+  background: linear-gradient(0deg, $yellow);
+  margin: auto;
+  margin-bottom: 20px;
+  padding: 10px;
+  .header-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    nav {
+      display: flex;
+      flex-direction: row;
+      border-radius: 10px;
+      background-color: $brown;
+      & > * {
+        margin: 0 10px;
+        padding: 5px;
+        color: $yellow;
+        text-decoration: underline;
+        transition: all 0.3s;
+        &:hover {
+          background: $orange;
+          color: yellow;
+          border-radius: 10px;
+          padding: 5px 15px;
+          margin: 0 0px;
+        }
+      }
+      /* in case if there is a div container around a tag*/
+      * {
+        color: $yellow;
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .logo {
+    position: relative;
+    height: 80px;
+    margin: 15px;
+    div {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      background: white;
+      border-radius: 50%;
+      border: 3px solid black;
+      transition: all 300ms;
+      cursor: pointer;
+    }
+
+    div:first-child {
+      left: -85px;
+      top: -15px;
+      background-image: url(https://static-cdn.jtvnw.net/jtv_user_pictures/17fad5a73dae9bba-profile_image-300x300.png);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 100px 100px;
+      &:hover {
+        background-size: 300px 120px;
+      }
+    }
+    div:last-child {
+      right: -85px;
+      top: -15px;
+      background-image: url(https://i.ytimg.com/vi/va_RpDo3bi4/maxresdefault.jpg);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 175px 100px;
+
+      &:hover {
+        background-size: 400px 120px;
+      }
+    }
+
+    div:hover {
+      transform: scale(1.1);
+    }
+
+    a {
+      text-align: center;
+      display: block;
+      color: white;
+      font-size: 34px;
+      padding: 10px 15px;
+      background: $red;
+      text-align: center;
+      line-height: 50px;
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  header {
+    .logo {
+      a {
+        font-size: 24px;
+      }
+    }
+  }
+}

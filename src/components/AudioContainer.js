@@ -1,6 +1,6 @@
-import React from "react"
+import React, { Component } from "react"
 
-class AudioContainer extends React.Component {
+class AudioContainer extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -13,16 +13,25 @@ class AudioContainer extends React.Component {
   }
 
   render() {
-    const { playOnClick, playOnEnter, endOnLeave } = this.props
+    const { playOnClick, playOnEnter, endOnLeave, styles } = this.props
     const { audio } = this.state
 
     if (playOnClick) {
-      return <div onClick={() => audio.play()}>{this.props.children}</div>
+      return (
+        <div style={styles} onClick={() => audio.play()}>
+          {this.props.children}
+        </div>
+      )
     } else if (playOnEnter) {
-      return <div onMouseEnter={() => audio.play()}>{this.props.children}</div>
+      return (
+        <div style={styles} onMouseEnter={() => audio.play()}>
+          {this.props.children}
+        </div>
+      )
     } else if (endOnLeave) {
       return (
         <div
+          style={styles}
           onMouseEnter={() => audio.play()}
           onMouseLeave={() => {
             audio.pause()
@@ -33,7 +42,11 @@ class AudioContainer extends React.Component {
         </div>
       )
     } else {
-      return <div onMouseEnter={() => audio.play()}>{this.props.children}</div>
+      return (
+        <div style={styles} onMouseEnter={() => audio.play()}>
+          {this.props.children}
+        </div>
+      )
     }
   }
 }
