@@ -5,7 +5,6 @@ import "../styles/header.scss"
 import AudioContainer from "./audioContainer"
 import soundReload from "../assets/reload.wav"
 import soundJoinUs from "../assets/Join_Us_Join_Us_Join_Us_Now.mp3"
-import soundA from "../assets/aaaaaa.wav"
 
 const Header = ({ siteTitle }) => (
   <header>
