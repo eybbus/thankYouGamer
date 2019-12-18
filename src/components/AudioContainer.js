@@ -9,7 +9,9 @@ class AudioContainer extends Component {
   }
 
   componentDidMount() {
-    this.setState({ audio: new Audio(this.props.sound) })
+    let audio = new Audio(this.props.sound)
+    audio.volume = 0.35
+    this.setState({ audio: audio })
   }
 
   render() {
