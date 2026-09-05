@@ -1,0 +1,28 @@
+---
+import PatreonCard from "../components/PatreonCard.astro";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="The Gamers">
+  <h1>The Gamers</h1>
+  <div class="patreon-cards">
+    <PatreonCard
+      name="Mandaloregaming"
+      url="https://www.patreon.com/mandaloregaming"
+      logo="https://static-cdn.jtvnw.net/jtv_user_pictures/17fad5a73dae9bba-profile_image-300x300.png"
+    />
+    <PatreonCard
+      name="Shammy"
+      url="https://www.patreon.com/Shammy"
+      logo="https://i.ytimg.com/vi/va_RpDo3bi4/maxresdefault.jpg"
+    />
+  </div>
+</Layout>
+
+<style>
+  .patreon-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+</style>

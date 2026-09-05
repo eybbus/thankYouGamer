@@ -1,0 +1,48 @@
+---
+import "../styles/layout.css";
+import Header from "../components/Header.astro";
+import { SITE_AUTHOR, SITE_DESCRIPTION, SITE_TITLE } from "../consts";
+
+const { title, description = SITE_DESCRIPTION } = Astro.props;
+const pageTitle = title ? `${title} | ${SITE_TITLE}` : SITE_TITLE;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="/favicon.png" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:creator" content={SITE_AUTHOR} />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={description} />
+  </head>
+  <body>
+    <Header siteTitle={SITE_TITLE} />
+    <div class="content-wrapper">
+      <main>
+        <slot />
+      </main>
+      <footer>
+        @Send your suggestions and issues
+        <a href="https://github.com/eybbus/thankYouGamer/issues">here</a> or @eybbus
+        in lowry chat
+      </footer>
+    </div>
+  </body>
+</html>
+
+<style>
+  .content-wrapper {
+    margin: 0 auto;
+    max-width: 960px;
+    padding: 0 1.0875rem 1.45rem;
+    padding-top: 0;
+  }
+</style>

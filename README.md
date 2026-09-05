@@ -1,6 +1,27 @@
 # thankYouGamer
 Website for a Mandaloregaming and shammy joke.
 
+Built with [Astro](https://astro.build), package management via pnpm, lint/format via [Biome](https://biomejs.dev).
+
+## Develop
+
+```
+pnpm install
+pnpm dev
+```
+
+## Build
+
+```
+pnpm build
+```
+
+## Lint / format
+
+```
+pnpm check
+```
+
 # Ideas
 
 background image: https://cdn.discordapp.com/attachments/261342024970534912/606170663002308624/thank_you_gamers.png

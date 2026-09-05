@@ -1,0 +1,47 @@
+---
+const { sound, playOnClick = false, endOnLeave = false, style } = Astro.props;
+const behavior = playOnClick ? "click" : endOnLeave ? "leave" : "enter";
+---
+
+<div class="audio-container" data-sound={sound} data-behavior={behavior} style={style}>
+  <slot />
+</div>
+
+<script>
+  const PENDING_SOUND_KEY = "audio-container-pending-sound";
+
+  const pendingSound = sessionStorage.getItem(PENDING_SOUND_KEY);
+  if (pendingSound) {
+    sessionStorage.removeItem(PENDING_SOUND_KEY);
+    const audio = new Audio(pendingSound);
+    audio.volume = 0.35;
+    audio.play();
+  }
+
+  document.querySelectorAll<HTMLElement>(".audio-container[data-sound]").forEach((el) => {
+    if (el.dataset.wired) return;
+    el.dataset.wired = "true";
+
+    const audio = new Audio(el.dataset.sound);
+    audio.volume = 0.35;
+
+    if (el.dataset.behavior === "click") {
+      el.addEventListener("click", (event) => {
+        const link = (event.target as HTMLElement).closest("a");
+        if (link) {
+          if (el.dataset.sound) sessionStorage.setItem(PENDING_SOUND_KEY, el.dataset.sound);
+          return;
+        }
+        audio.play();
+      });
+    } else if (el.dataset.behavior === "leave") {
+      el.addEventListener("mouseenter", () => audio.play());
+      el.addEventListener("mouseleave", () => {
+        audio.pause();
+        audio.currentTime = 0;
+      });
+    } else {
+      el.addEventListener("mouseenter", () => audio.play());
+    }
+  });
+</script>

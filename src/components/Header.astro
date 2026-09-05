@@ -1,0 +1,25 @@
+---
+import "../styles/header.css";
+import soundJoinUs from "../assets/Join_Us_Join_Us_Join_Us_Now.mp3";
+import soundReload from "../assets/reload.wav";
+import AudioContainer from "./AudioContainer.astro";
+
+const { siteTitle = "" } = Astro.props;
+---
+
+<header>
+  <div class="header-container">
+    <div class="logo">
+      <AudioContainer sound={soundReload} playOnClick />
+      <a href="/">{siteTitle}</a>
+      <AudioContainer sound={soundReload} playOnClick />
+    </div>
+    <nav>
+      <a href="/theGamers/">The Gamers</a>
+      <a href="/gamerMoments/">Gamer moments</a>
+      <AudioContainer sound={soundJoinUs} playOnClick>
+        <a href="/about/">What is this</a>
+      </AudioContainer>
+    </nav>
+  </div>
+</header>

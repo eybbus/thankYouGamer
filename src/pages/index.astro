@@ -1,0 +1,25 @@
+---
+import soundThankYou from "../assets/throwUp_thankYouGamer.wav";
+import AudioContainer from "../components/AudioContainer.astro";
+import Image from "../components/Image.astro";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Home">
+  <p style="text-align: center;">
+    A lot of elements on this page are clickable and produce sound
+  </p>
+  <AudioContainer
+    sound={soundThankYou}
+    playOnClick
+    style={{
+      cursor: "pointer",
+      maxWidth: "75%",
+      marginLeft: "auto",
+      marginRight: "auto",
+      marginBottom: "1.45rem",
+    }}
+  >
+    <Image />
+  </AudioContainer>
+</Layout>

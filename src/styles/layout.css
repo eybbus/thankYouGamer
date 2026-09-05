@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto");
 /*TODO: move font load to header or use gatsby-plugin*/
 
-@import "./_colors.scss";
+@import "./colors.css";
 
 html {
   font-family: "Roboto", sans-serif;
@@ -9,7 +9,7 @@ html {
   -webkit-text-size-adjust: 100%;
 }
 body {
-  background: $red;
+  background: var(--red);
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -628,8 +628,8 @@ pre tt:after {
 }
 
 footer {
-  color: $green;
-  a {
-    color: $yellow;
-  }
+  color: var(--green);
+}
+footer a {
+  color: var(--yellow);
 }

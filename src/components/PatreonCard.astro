@@ -1,0 +1,48 @@
+---
+const { name, url, logo } = Astro.props;
+---
+
+<a class="patreon-card" href={url} target="_blank" rel="noopener noreferrer">
+  <img class="patreon-card__logo" src={logo} alt={`${name} logo`} width="80" height="80" />
+  <span class="patreon-card__name">{name}</span>
+  <span class="patreon-card__cta">Support on Patreon</span>
+</a>
+
+<style>
+  .patreon-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 220px;
+    padding: 1.25rem;
+    border-radius: 8px;
+    background: var(--patreon-card-bg, #a55b3b);
+    color: #fff;
+    text-decoration: none;
+    box-shadow: 0 2px 6px hsla(0, 0%, 0%, 0.3);
+    transition: transform 0.15s ease;
+  }
+
+  .patreon-card:hover {
+    transform: translateY(-3px);
+  }
+
+  .patreon-card__logo {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 50%;
+    align-self: center;
+    margin-bottom: 0;
+  }
+
+  .patreon-card__name {
+    font-weight: bold;
+    font-size: 1.1rem;
+  }
+
+  .patreon-card__cta {
+    font-size: 0.85rem;
+    color: #feb115;
+  }
+</style>
